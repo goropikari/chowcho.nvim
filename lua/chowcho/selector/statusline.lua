@@ -49,8 +49,8 @@ M.show = function(self, idx, win)
   vim.o.cmdheight = 1
 
   if not vim.tbl_contains(_state.windows, function(v)
-    return v.win == win
-  end, { predicate = true }) then
+        return v.win == win
+      end, { predicate = true }) then
     table.insert(_state.windows, { win = win, statusline = vim.wo[win].statusline })
   end
 
@@ -80,8 +80,10 @@ M.highlight = function(self)
 
   for _, hl in pairs(hl_groups) do
     local default = vim.api.nvim_get_hl(0, { name = hl.default })
-    local fg = string.format("#%06x", default.fg)
-    local bg = string.format("#%06x", default.bg)
+    -- local fg = string.format("#%06x", default.fg)
+    -- local bg = string.format("#%06x", default.bg)
+    local fg = '#ffffff'
+    local bg = '#000000'
     if hl.fg ~= nil then
       fg = hl.fg
     end
