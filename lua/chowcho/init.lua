@@ -52,11 +52,11 @@ local filter_wins = function(wins)
   for _, v in ipairs(wins) do
     local buf = vim.api.nvim_win_get_buf(v)
     local bt = vim.api.nvim_get_option_value("buftype", { buf = buf })
-    local fname = vim.fs.basename(vim.api.nvim_buf_get_name(buf))
+    -- local fname = vim.fs.basename(vim.api.nvim_buf_get_name(buf))
     if bt == "prompt" then
       goto continue
-    elseif bt == "nofile" and fname == "" then
-      goto continue
+      -- elseif bt == "nofile" and fname == "" then
+      --   goto continue
     end
 
     table.insert(ret, v)
